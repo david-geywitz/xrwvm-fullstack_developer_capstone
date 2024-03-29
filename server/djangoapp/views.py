@@ -71,6 +71,7 @@ def registration(request):
     except:
         # If not, simply log this is a new user
         logger.debug("{} is new user".format(username))
+        raise
 
     # If it is a new user
     if not username_exist:
@@ -125,5 +126,6 @@ def add_review(request):
         except:
             return JsonResponse({"status": 401, "message":
                                  "Error in posting review"})
+            raise
     else:
         return JsonResponse({"status": 403, "message": "Unauthorized"})
