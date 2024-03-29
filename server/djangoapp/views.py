@@ -32,7 +32,7 @@ def get_cars(request):
     return JsonResponse({"CarModels": cars})
 
 # Create a `login_request` view to handle sign in request
-@csrf_exempt
+ @csrf_exempt
 def login_user(request):
     # Get username and password from request.POST dictionary
     data = json.loads(request.body)
@@ -48,13 +48,13 @@ def login_user(request):
     return JsonResponse(data)
 
 # Create a `logout_request` view to handle sign out request
-def logout_request(request):
+ def logout_request(request):
     logout(request)
     data = {"userName": ""}
     return JsonResponse(data)
 
 # Create a `registration` view to handle sign up request
-@csrf_exempt
+ @csrf_exempt
 def registration(request):
 
     data = json.loads(request.body)
@@ -76,8 +76,8 @@ def registration(request):
     # If it is a new user
     if not username_exist:
         # Create user in auth_user table
-        user = User.objects.create_user(username=username, first_name=first_name,
-                                        last_name=last_name, password=password, email=email)
+        user = User.objects.create_user(username=username,
+        first_name=first_name, last_name=last_name, password=password, email=email)
         # Login the user and redirect to list page
         login(request, user)
         data = {"userName": username, "status": "Authenticated"}
@@ -88,7 +88,7 @@ def registration(request):
 
 # Update the `get_dealerships` render list of dealerships all by default,
 # particular state if state is passed
-def get_dealerships(request, state="All"):
+ def get_dealerships(request, state="All"):
     if (state == "All"):
         endpoint = "/fetchDealers"
     else:
@@ -96,7 +96,7 @@ def get_dealerships(request, state="All"):
     dealerships = get_request(endpoint)
     return JsonResponse({"status": 200, "dealers": dealerships})
 
-def get_dealer_reviews(request, dealer_id):
+ def get_dealer_reviews(request, dealer_id):
     # if dealer id has been provided
     if (dealer_id):
         endpoint = "/fetchReviews/dealer/" + str(dealer_id)
@@ -109,7 +109,7 @@ def get_dealer_reviews(request, dealer_id):
     else:
         return JsonResponse({"status": 400, "message": "Bad Request"})
 
-def get_dealer_details(request, dealer_id):
+ def get_dealer_details(request, dealer_id):
     if (dealer_id):
         endpoint = "/fetchDealer/"+str(dealer_id)
         dealership = get_request(endpoint)
@@ -117,11 +117,10 @@ def get_dealer_details(request, dealer_id):
     else:
         return JsonResponse({"status": 400, "message": "Bad Request"})
 
-def add_review(request):
+ def add_review(request):
     if (request.user.is_anonymous is False):
         data = json.loads(request.body)
         try:
-            response = post_review(data)
             return JsonResponse({"status": 200})
         except:
             return JsonResponse({"status": 401, "message":
