@@ -29,7 +29,7 @@ SECRET_KEY =\
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost','''https://davidgeywitz-8000.theiadockernext-0-labs-pro
+    'localhost', '''https://davidgeywitz-8000.theiadockernext-0-labs-pro
     d-theiak8s-4-tor01.proxy.cognitiveclass.ai''']
 CSRF_TRUSTED_ORIGINS = [
     '''https://davidgeywitz-8000.theiadockernext-0-labs-pro
@@ -98,7 +98,8 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME':
-'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        '''django.contrib.auth.password_validation.UserAttribute
+        SimilarityValidator''',
     },
     {
         'NAME':
