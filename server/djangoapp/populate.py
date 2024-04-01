@@ -10,6 +10,7 @@ def initiate():
         {"name": "Toyota", "description": "Great cars. Japanese technology"},
     ]
 
+
 car_make_instances = []
 
 
