@@ -29,11 +29,11 @@ SECRET_KEY =\
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost','https://davidgeywitz-8000.theiadockernext-0-labs-pro
-    d-theiak8s-4-tor01.proxy.cognitiveclass.ai']
+    'localhost',`https://davidgeywitz-8000.theiadockernext-0-labs-pro
+    d-theiak8s-4-tor01.proxy.cognitiveclass.ai`]
 CSRF_TRUSTED_ORIGINS = [
-    'https://davidgeywitz-8000.theiadockernext-0-labs-pro
-    d-theiak8s-4-tor01.proxy.cognitiveclass.ai']
+    `https://davidgeywitz-8000.theiadockernext-0-labs-pro
+    d-theiak8s-4-tor01.proxy.cognitiveclass.ai`]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
